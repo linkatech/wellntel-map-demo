@@ -1,0 +1,16 @@
+# Paid always-on origin. Free Render instances sleep and will break this demo.
+# Public URL stays on Cloudflare; set the Worker ORIGIN to this service's URL.
+
+services:
+  - type: web
+    name: wellntel-map-demo
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_ORIGIN
+        value: https://demos.linkatechdevs.com
+      - key: APP_PUBLIC_URL
+        value: https://demos.linkatechdevs.com/wellntel/map-services-and-meta

@@ -1,0 +1,35 @@
+# Always-on Node origin. Public URL is demos.linkatechdevs.com/wellntel/map-services-and-meta
+# via the Cloudflare Worker. Do not enable scale-to-zero.
+#
+# fly launch --copy-config
+# fly deploy
+
+app = "wellntel-map-demo"
+primary_region = "iad"
+
+[build]
+
+[env]
+  NODE_ENV = "production"
+  PORT = "4301"
+  CLIENT_ORIGIN = "https://demos.linkatechdevs.com"
+  APP_PUBLIC_URL = "https://demos.linkatechdevs.com/wellntel/map-services-and-meta"
+
+[http_service]
+  internal_port = 4301
+  force_https = true
+  auto_stop_machines = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [[http_service.checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/api/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

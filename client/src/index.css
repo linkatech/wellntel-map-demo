@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@theme {
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-wellintel: #7c6ee6;
+  --color-other-sensor: #f0c94d;
+  --color-wellntel-blue: #1e6bb8;
+  --color-wellntel-orange: #ef6816;
+  --color-canvas: #0b0b0b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: #0f172a;
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #d6e4ef;
+  font-family: var(--font-sans);
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.28);
+}
+
+.leaflet-touch .leaflet-bar a,
+.leaflet-bar a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.sensor-selected {
+  filter:
+    drop-shadow(0 0 1px var(--accent, #7c6ee6))
+    drop-shadow(0 0 2px var(--accent, #7c6ee6))
+    drop-shadow(0 0 8px var(--accent, #7c6ee6));
+}
+
+.selected-well-swatch {
+  display: block;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 3px solid var(--accent, #7c6ee6);
+}
+
+.leaflet-div-icon.selected-well-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+
+.sensor-popup h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sensor-popup p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.leaflet-control-attribution {
+  font-size: 11px;
+}
+
+.station-mesh-tooltip {
+  pointer-events: auto;
+  min-width: 180px;
+  max-width: 260px;
+}
+
+.station-mesh-tooltip strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.station-mesh-tooltip p {
+  margin: 0;
+  font-size: 12px;
+  color: #475569;
+}
+
+.station-mesh-tooltip ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.station-mesh-tooltip li {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.time-range-field {
+  display: flex;
+  box-sizing: border-box;
+  width: 10.25rem;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 8px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgb(15 23 42 / 0.04);
+}
+
+.time-range-field:focus-within {
+  border-color: #1e6bb8;
+  box-shadow: 0 0 0 3px rgb(30 107 184 / 0.2);
+}
+
+.time-range-field span {
+  flex: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.time-range-field input[type='date'] {
+  box-sizing: border-box;
+  width: 6.75rem;
+  min-width: 6.75rem;
+  max-width: 6.75rem;
+  flex: none;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f172a;
+  background: transparent;
+}
+
+.time-range-field input[type='date']:focus {
+  outline: none;
+}
+
+.time-range-field input[type='date']::-webkit-datetime-edit {
+  padding: 0;
+}
+
+.time-range-field input[type='date']::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.time-range-field input[type='date']::-webkit-datetime-edit-text {
+  padding: 0 1px;
+}
+
+.time-range-field input[type='date']::-webkit-calendar-picker-indicator {
+  margin-left: 2px;
+  margin-right: 0;
+  padding: 0;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}

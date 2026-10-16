@@ -1,0 +1,23 @@
+# Proxies only this path to the always-on Node origin.
+# Pages keeps demos.linkatechdevs.com/refundone and everything else.
+#
+# After Render/Fly is up:
+#   npx wrangler secret put ORIGIN
+#   (value: https://YOUR-APP.onrender.com or https://YOUR-APP.fly.dev)
+#   npx wrangler deploy
+#
+# Do not add a catch-all route on demos.linkatechdevs.com/*.
+
+name = "wellntel-map-demo-proxy"
+account_id = "725c645e3dc09cfb7417c4d9b7a15a84"
+main = "src/index.js"
+compatibility_date = "2026-10-16"
+workers_dev = false
+
+[[routes]]
+pattern = "demos.linkatechdevs.com/wellntel/map-services-and-meta"
+zone_name = "linkatechdevs.com"
+
+[[routes]]
+pattern = "demos.linkatechdevs.com/wellntel/map-services-and-meta/*"
+zone_name = "linkatechdevs.com"
